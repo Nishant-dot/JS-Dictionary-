@@ -41,8 +41,11 @@ function makeTmpDict(tDict, dict){
 
 function findAns(ans, tDict, days, daysNumber){
     for(let day in days){
+        
+        let small = day.substring(0, 3);
+        
         if(tDict.hasOwnProperty(day)){
-            ans[day] = tDict[day]
+            ans[small] = tDict[day]
         }
         else{
             let key1 = Math.abs((days[day]-1 + 7)%7)
@@ -50,7 +53,7 @@ function findAns(ans, tDict, days, daysNumber){
             let day1 = daysNumber[key1]
             let day2 = daysNumber[key2]
             
-            ans[day] = (tDict[day1] + tDict[day2])/2
+            ans[small] = (tDict[day1] + tDict[day2])/2
         }
     }
 }
